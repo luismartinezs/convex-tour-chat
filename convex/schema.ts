@@ -6,4 +6,9 @@ export default defineSchema({
     author: v.string(),
     body: v.string(),
   }),
+  likes: defineTable({
+    liker: v.string(),
+    messageId: v.id("messages"),
+  })
+    .index("byMessageId", ["messageId"])
 });
